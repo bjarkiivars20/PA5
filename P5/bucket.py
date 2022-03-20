@@ -14,7 +14,6 @@ class Node:
 
 class Bucket:
     def __init__(self):
-        """"""
         self.head = Node()
         self.size = 0
 
@@ -26,7 +25,7 @@ class Bucket:
         elif node.key == key:
             return node
         else:
-            self._find_key_recur(key, node.next)
+            return self._find_key_recur(key, node.next)
 
     def insert(self, key, data):
         no_key = self.contains(key)
@@ -72,7 +71,15 @@ class Bucket:
     def remove(self, key):
         node = self._find_key_recur(key, self.head)
         if node != None:
-            node.next = node.next.next
+            if node == self.head: #Ef hann er fremstur
+                if node.next == None: #Ef það er engin önnur nóða
+                    self.head = None
+                else:
+                    self.head = node.next
+            elif node.next == None: #Ef hann er aftastur
+                node = None
+            else:
+                node.next = node.next.next
             self.size -= 1
         else:
             raise NotFoundException()
@@ -101,3 +108,5 @@ class Bucket:
         return self.size
 
 
+bucket = Bucket()
+print(dir(bucket))
