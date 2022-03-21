@@ -1,4 +1,4 @@
-from whatever_your_implementation_file_is_called import *
+from myhashablekey import *
 
 # READ THIS!!
 # DO NOT USE THE BUILT-IN HASH
@@ -9,7 +9,7 @@ from whatever_your_implementation_file_is_called import *
 if __name__ == "__main__":
     k1 = MyHashableKey(1, "one")
     print(hash(k1))
-    k2a = MyHashableKey(2, "two")
+    k2a = MyHashableKey(2, "two") 
     print(hash(k2a))
     k2b = MyHashableKey(2, "two")
     print(hash(k2b))
